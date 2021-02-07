@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HODLer",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "maxLength": 153
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "dob": {
+      "type": "string",
+      "format": "date"
+    },
+    "address": {
+      "$ref": "address.json#",
+      "type": "object"
+    },
+    "wallets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "wallet.json#"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+
+  ]
+}

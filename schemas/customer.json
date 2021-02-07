@@ -1,11 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "HODLer",
+  "title": "HODLer Schema",
   "type": "object",
   "properties": {
+    "metadata": {
+      "$ref": "meta.json#"
+    },
     "name": {
-      "type": "string",
-      "maxLength": 153
+      "$ref": "definitions.json#/definitions/limits/name"
     },
     "email": {
       "type": "string",
@@ -16,13 +18,17 @@
       "format": "date"
     },
     "address": {
-      "$ref": "address.json#",
-      "type": "object"
+      "$ref": "address.json#"
+    },
+    "avatar": {
+      "$ref": "image.json#"
+    },
+    "taste_profile": {
+      "$ref": "taste.json#"
     },
     "wallets": {
       "type": "array",
       "items": {
-        "type": "object",
         "$ref": "wallet.json#"
       },
       "minItems": 1
@@ -30,8 +36,18 @@
     "reviews": {
       "type": "array",
       "items": {
-        "type": "object",
         "$ref": "review.json#"
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": [
+          "business.json#", 
+          "badge.json#",
+          "cda.json#",
+          "review.json#"
+        ]
       }
     }
   },

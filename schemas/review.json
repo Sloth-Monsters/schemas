@@ -1,8 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Review",
+  "title": "Review Schema",
   "type": "object",
   "properties": {
+    "metadata": {
+      "$ref": "meta.json#"
+    },
     "title": {
       "type": "string",
       "maxLength": 140
@@ -20,13 +23,19 @@
       "format": "date-time"
     },
     "document": {
-      "type": "string",
-      "pattern": "^ceramic://.+",
-      "maxLength": 1024
+      "$ref": "definitions.json#/definitions/CeramicURL"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "image.json#"
+      }
     },
     "comments": {
       "type": "array",
-      "$ref": "review-comment.json#"
+      "items": {
+        "$ref": "review-comment.json#"
+      }
     }
   },
   "required": [

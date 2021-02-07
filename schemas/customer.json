@@ -26,6 +26,13 @@
         "$ref": "wallet.json#"
       },
       "minItems": 1
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "review.json#"
+      }
     }
   },
   "required": [

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Review Comment",
+  "type": "object",
+  "properties": {
+    "from": {
+      "type": "object",
+      "$ref": ["customer.json#", "business.json#"]
+    },
+    "review": {
+      "type": "object",
+      "$ref": "review.json#"
+    },
+    "posted": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "position": {
+      "type": "number",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "from", "review", "posted"
+  ]
+}

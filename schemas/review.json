@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Review",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "maxLength": 140
+    },
+    "for": {
+      "type": "object",
+      "$ref": ["business.json#", "bier.json#", "reward.json#"]
+    },
+    "from": {
+      "type": "object",
+      "$ref": "customer.json"
+    },
+    "posted": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "document": {
+      "type": "string",
+      "pattern": "^ceramic://.+",
+      "maxLength": 1024
+    },
+    "comments": {
+      "type": "array",
+      "$ref": "review-comment.json#"
+    }
+  },
+  "required": [
+    "title", "for", "from", "posted", "document"
+  ]
+}
